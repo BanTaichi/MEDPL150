@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+	<title>Image 2</title>
+</head>
+<body>
+	<img src="Images/DSC09112.png">
+<p>
+I picked this photo because it has a darker, kind of calm mood that makes it feel different from regular bright pictures. The light reflecting in the water makes a straight line down the middle, which naturally draws your eyes to it first. The tree branches at the top also add some detail so the photo doesn’t look empty or plain. When I cropped it to 5 × 7, I made sure the reflection stayed in the center so the picture would look even and not off-balance. I adjusted the brightness and contrast a little so the light stood out more but the darker parts were still visible. Overall, I like this photo because the reflection, shadows, and quiet feeling make it more interesting to look at.
+</p>
+</body>
+</html>
