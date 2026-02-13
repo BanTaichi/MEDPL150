@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<title>Chris's First HTML Site</title>
+</head>
+<body>
+	<h1>Chris Chan</h1>
+	<p>This is my creative statement.</p>
+	<p><a href="Image.html">chickens.png</a></p>
+
+Susan Sontag’s essay “In Plato’s Cave” is about how photography affects the way people see the world and live their lives. Her main idea is that photos are not just simple pictures of reality. Instead, they change how we understand reality. She compares modern life to Plato’s Cave, which is a story about people who only see shadows on a wall and think those shadows are the real world. Sontag is saying that today, people often look at images instead of actually being present, and that can affect what we think is true.
+<br>
+One big point she makes is that taking a photo is a kind of power. The person holding the camera decides what goes in the picture and what gets left out. That means they are choosing the story that other people will see. Even if a photo looks honest, it’s still someone’s choice of angle, lighting, and moment. For example, if you take a picture of someone when they blink, they might look tired or upset even if they aren’t. So photos aren’t always the full truth — they’re just one version of it.
+<br>
+Sontag also talks about the idea of “collecting the world.” What she means is that people use photos like souvenirs. Instead of fully enjoying a trip or a fun moment, people sometimes focus more on getting the perfect picture. The photo becomes proof that they were there, almost like evidence. Over time, this can make life feel like a bunch of images instead of real memories. People start remembering the picture more than the actual feeling they had in that moment.
+<br>
+Another idea she brings up is how photography creates distance between people. When you take a picture of someone, you’re watching them from the outside. They might not get to choose how they look or how others judge them. This can be unfair because the photographer has control while the subject doesn’t. That’s why photography can be powerful but also a little risky. It can show beauty and truth, but it can also misrepresent people or situations.
+<br>
+For students or anyone making media, Sontag’s ideas are important because they remind us to think before we create images. Every picture sends a message, even if we don’t mean it to. Instead of just snapping photos without thinking, it helps to ask, “What am I showing? What am I leaving out? How might someone else feel seeing this?” When you make multiple projects over time, they can connect and show your personal style and growth, not just random assignments.
+<br>
+In the end, Sontag is saying that photography is more than just taking pictures. It shapes how we remember things and how we see the world. Photos can be meaningful and beautiful, but they can also distract us from actually living in the moment. Her message is basically a reminder to use cameras and images thoughtfully, not automatically, because pictures don’t just capture life  they also influence it.
+</body>
+</html>
