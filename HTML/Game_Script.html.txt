@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dungeon Conqueror</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background:linear-gradient(to bottom,#0a0a0a,#200000);
+    color:white;
+    font-family:Georgia, serif;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+    color:darkred;
+    font-size:50px;
+    margin-bottom:20px;
+    text-shadow:3px 3px 10px black;
+}
+
+.story{
+    background:rgba(0,0,0,0.7);
+    border:2px solid darkred;
+    border-radius:15px;
+    padding:25px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.class-container{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.class-box{
+    width:32%;
+    background:rgba(0,0,0,0.75);
+    border:2px solid darkred;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0px 0px 15px rgba(255,0,0,0.3);
+}
+
+.class-box h2{
+    text-align:center;
+    color:#ff4d4d;
+    font-size:35px;
+}
+
+.weapon{
+    text-align:center;
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+ul{
+    line-height:1.8;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+.skill-title{
+    color:gold;
+    font-size:20px;
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Dungeon Conqueror</h1>
+
+<div class="story">
+
+<h2>Story Description</h2>
+
+<p>
+Dungeon Conqueror is a dark fantasy interactive story game that takes place inside a dangerous dungeon filled with monsters, wolves, goblins, ghosts, and a final boss called the Skeleton King. 
+The player’s goal is to survive every level of the dungeon and conquer it by making choices throughout the adventure.
+</p>
+
+<p>
+At the beginning of the game, the player chooses one of three classes: Warrior, Archer, or Mage. Each class has different weapons, powers, and abilities that change the story path and gameplay experience.
+</p>
+
+<p>
+As the player progresses through the dungeon, they unlock stronger abilities and encounter tougher enemies. Some choices can lead to death while others lead closer to victory. The game contains multiple paths and multiple endings depending on the choices the player makes.
+</p>
+
+<p>
+The Warrior and Archer eventually struggle against ghosts because physical attacks cannot damage spiritual enemies. However, the Mage can survive by learning Holy Magic, allowing them to defeat the ghosts and continue to the final boss battle against the Skeleton King.
+</p>
+
+</div>
+
+<div class="class-container">
+
+<!-- WARRIOR -->
+
+<div class="class-box">
+
+<h2>Warrior</h2>
+
+<div class="weapon">
+⚔️ Sword
+</div>
+
+<p class="skill-title">Starting Skills</p>
+
+<ul>
+<li><strong>Heavy Strike:</strong> Gain 20% attack power</li>
+
+<li><strong>Quick Draw:</strong> Gain 30% attack speed</li>
+
+<li><strong>Resistance:</strong> Gain 20% damage reduction</li>
+</ul>
+
+<p class="skill-title">Passive Skills</p>
+
+<ul>
+<li><strong>Berserk:</strong> Killing enemies grants temporary attack buffs</li>
+
+<li><strong>Latent Retribution:</strong> Waiting before attacking increases damage</li>
+
+<li><strong>Health Threshold:</strong> Chance to parry below 50% HP</li>
+</ul>
+
+<p class="skill-title">Ultimate Skills</p>
+
+<ul>
+<li><strong>Devastate:</strong> Creates a giant shockwave</li>
+
+<li><strong>Impact:</strong> Next strike always crits</li>
+
+<li><strong>Mortal Spin:</strong> Become a tornado of blades</li>
+</ul>
+
+</div>
+
+<!-- ARCHER -->
+
+<div class="class-box">
+
+<h2>Archer</h2>
+
+<div class="weapon">
+🏹 Bow and Arrow
+</div>
+
+<p class="skill-title">Starting Skills</p>
+
+<ul>
+<li><strong>Triple Arrow:</strong> Shoot three arrows at once</li>
+
+<li><strong>Quick Shot:</strong> Fire arrows much faster</li>
+
+<li><strong>Piercing Arrows:</strong> Arrows pass through enemies</li>
+</ul>
+
+<p class="skill-title">Arrow Powers</p>
+
+<ul>
+<li><strong>Ice Arrows:</strong> Slow enemies when hit</li>
+
+<li><strong>Fire Arrows:</strong> Burn enemies over time</li>
+
+<li><strong>Poison Arrows:</strong> Poison enemies</li>
+</ul>
+
+<p class="skill-title">Ultimate Skills</p>
+
+<ul>
+<li><strong>Raining Arrows:</strong> Arrows rain from the sky</li>
+
+<li><strong>Tracking Arrow:</strong> Missed arrows redirect to enemies</li>
+
+<li><strong>Scatter Arrow:</strong> Fire arrows in every direction</li>
+</ul>
+
+</div>
+
+<!-- MAGE -->
+
+<div class="class-box">
+
+<h2>Mage</h2>
+
+<div class="weapon">
+🪄 Staff
+</div>
+
+<p class="skill-title">Starting Magic</p>
+
+<ul>
+<li><strong>Ice Magic:</strong> Slow enemies with ice bolts</li>
+
+<li><strong>Fire Magic:</strong> Burn enemies over time</li>
+
+<li><strong>Lightning Magic:</strong> Stun enemies with lightning</li>
+</ul>
+
+<p class="skill-title">Advanced Magic</p>
+
+<ul>
+<li><strong>Holy Magic:</strong> Strong against ghosts and undead</li>
+
+<li><strong>Shadow Magic:</strong> Trap enemies using shadows</li>
+
+<li><strong>Necromancy Magic:</strong> Summon undead armies</li>
+</ul>
+
+<p class="skill-title">Elemental Magic</p>
+
+<ul>
+<li><strong>Wind Magic:</strong> Powerful wind slashes</li>
+
+<li><strong>Earth Magic:</strong> Throw rocks and control vines</li>
+
+<li><strong>Water Magic:</strong> Use water bubbles to drown enemies</li>
+</ul>
+
+<p class="skill-title">Final Skills</p>
+
+<ul>
+<li><strong>Meteor:</strong> Summon a giant meteor</li>
+
+<li><strong>Judgement:</strong> Holy swords rain from the sky</li>
+
+<li><strong>Death:</strong> Instantly kill your opponent</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
