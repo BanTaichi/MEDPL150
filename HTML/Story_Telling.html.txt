@@ -1,0 +1,81 @@
+<!doctype html>
+        );
+      } else {
+        setScene(
+          "You have reached Level 3, there appears to be 5 ghosts ahead of you what will you do?",
+          "Your spells have no effect against the ghosts.",
+          [
+            { text: "Attack", action: mageGhostDeath },
+            { text: "Died", action: deathEnding }
+          ]
+        );
+      }
+    }
+
+    function mageGhostDeath() {
+      setScene(
+        "The ghosts overwhelm you",
+        "Without Holy Magic you cannot defeat them.",
+        [
+          { text: "Restart", action: restartGame },
+          { text: "Redo", action: mageGhosts }
+        ]
+      );
+    }
+
+    function mageFinalSkill() {
+      setScene(
+        "Congratulations you have passed level 3 next room will be the boss room so pick your final skill",
+        "A giant throne waits ahead in the darkness.",
+        [
+          { text: "Meteor", action: skeletonKing },
+          { text: "Judgement", action: skeletonKing },
+          { text: "Death", action: skeletonKing }
+        ]
+      );
+    }
+
+    function skeletonKing() {
+      setScene(
+        "The final boss is a Skeleton King. What will you do?",
+        "The Skeleton King rises from his throne with glowing red eyes.",
+        [
+          { text: "Attack", action: victoryEnding },
+          { text: "Died", action: deathEnding }
+        ]
+      );
+    }
+
+    // ENDINGS
+    function victoryEnding() {
+      setScene(
+        "Congratulations you have conquered the Dungeon",
+        "The dungeon collapses behind you as you walk away victorious.",
+        [
+          { text: "Home", action: restartGame }
+        ]
+      );
+
+      storyText.innerHTML += '<div class="ending">VICTORY ENDING</div>';
+    }
+
+    function deathEnding() {
+      setScene(
+        "You Died",
+        "Your adventure has ended inside the dungeon.",
+        [
+          { text: "Restart", action: restartGame }
+        ]
+      );
+
+      storyText.innerHTML += '<div class="ending">DEATH ENDING</div>';
+    }
+
+    function restartGame() {
+      holyMagicUnlocked = false;
+      document.getElementById("homeScreen").classList.remove("hidden");
+      document.getElementById("gameScreen").classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
