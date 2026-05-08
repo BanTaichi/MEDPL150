@@ -10,7 +10,7 @@
 body{
     margin:0;
     padding:0;
-    background:linear-gradient(to bottom,#0a0a0a,#200000);
+    background:linear-gradient(to bottom,#0a0a0a,#220000);
     color:white;
     font-family:Georgia, serif;
 }
@@ -30,7 +30,7 @@ h1{
 }
 
 .story{
-    background:rgba(0,0,0,0.7);
+    background:rgba(0,0,0,0.75);
     border:2px solid darkred;
     border-radius:15px;
     padding:25px;
@@ -42,6 +42,7 @@ h1{
     display:flex;
     justify-content:space-between;
     gap:20px;
+    flex-wrap:wrap;
 }
 
 .class-box{
@@ -65,18 +66,24 @@ h1{
     margin-bottom:15px;
 }
 
+.skill-title{
+    color:gold;
+    font-size:22px;
+    margin-top:25px;
+}
+
+.level-title{
+    color:#ff6666;
+    font-size:20px;
+    margin-top:20px;
+}
+
 ul{
     line-height:1.8;
 }
 
 li{
     margin-bottom:10px;
-}
-
-.skill-title{
-    color:gold;
-    font-size:20px;
-    margin-top:20px;
 }
 
 </style>
@@ -93,20 +100,16 @@ li{
 <h2>Story Description</h2>
 
 <p>
-Dungeon Conqueror is a dark fantasy interactive story game that takes place inside a dangerous dungeon filled with monsters, wolves, goblins, ghosts, and a final boss called the Skeleton King. 
-The player’s goal is to survive every level of the dungeon and conquer it by making choices throughout the adventure.
+Dungeon Conqueror is a dark fantasy interactive story game where players explore a dangerous dungeon filled with monsters, ghosts, wolves, goblins, and the powerful Skeleton King. 
+The player’s goal is to survive each level and conquer the dungeon by making choices throughout the adventure.
 </p>
 
 <p>
-At the beginning of the game, the player chooses one of three classes: Warrior, Archer, or Mage. Each class has different weapons, powers, and abilities that change the story path and gameplay experience.
+At the start of the game, the player chooses between three classes: Warrior, Archer, or Mage. Every class has different weapons, powers, and abilities that change how the story unfolds.
 </p>
 
 <p>
-As the player progresses through the dungeon, they unlock stronger abilities and encounter tougher enemies. Some choices can lead to death while others lead closer to victory. The game contains multiple paths and multiple endings depending on the choices the player makes.
-</p>
-
-<p>
-The Warrior and Archer eventually struggle against ghosts because physical attacks cannot damage spiritual enemies. However, the Mage can survive by learning Holy Magic, allowing them to defeat the ghosts and continue to the final boss battle against the Skeleton King.
+Each level contains stronger enemies and more dangerous monsters. Players unlock stronger skills after each battle to help survive deeper inside the dungeon. The game contains multiple paths and multiple endings depending on the player’s choices.
 </p>
 
 </div>
@@ -120,37 +123,56 @@ The Warrior and Archer eventually struggle against ghosts because physical attac
 <h2>Warrior</h2>
 
 <div class="weapon">
-⚔️ Sword
+⚔️ Weapon: Sword
 </div>
 
 <p class="skill-title">Starting Skills</p>
 
 <ul>
 <li><strong>Heavy Strike:</strong> Gain 20% attack power</li>
-
 <li><strong>Quick Draw:</strong> Gain 30% attack speed</li>
-
 <li><strong>Resistance:</strong> Gain 20% damage reduction</li>
+</ul>
+
+<p class="level-title">Level 1 Monsters</p>
+
+<ul>
+<li>👹 3 Goblins</li>
 </ul>
 
 <p class="skill-title">Passive Skills</p>
 
 <ul>
-<li><strong>Berserk:</strong> Killing enemies grants temporary attack buffs</li>
-
-<li><strong>Latent Retribution:</strong> Waiting before attacking increases damage</li>
-
+<li><strong>Berserk:</strong> Gain attack buffs after kills</li>
+<li><strong>Latent Retribution:</strong> Waiting increases damage</li>
 <li><strong>Health Threshold:</strong> Chance to parry below 50% HP</li>
+</ul>
+
+<p class="level-title">Level 2 Monsters</p>
+
+<ul>
+<li>🐺 3 Packs of Wolves</li>
 </ul>
 
 <p class="skill-title">Ultimate Skills</p>
 
 <ul>
-<li><strong>Devastate:</strong> Creates a giant shockwave</li>
+<li><strong>Devastate:</strong> Giant sword shockwave</li>
+<li><strong>Impact:</strong> Guaranteed critical strike</li>
+<li><strong>Mortal Spin:</strong> Turn into a tornado of blades</li>
+</ul>
 
-<li><strong>Impact:</strong> Next strike always crits</li>
+<p class="level-title">Level 3 Monsters</p>
 
-<li><strong>Mortal Spin:</strong> Become a tornado of blades</li>
+<ul>
+<li>👻 5 Ghosts</li>
+</ul>
+
+<p class="level-title">Ending</p>
+
+<ul>
+<li>❌ Warrior attacks cannot damage ghosts</li>
+<li>☠️ Death Ending</li>
 </ul>
 
 </div>
@@ -162,37 +184,56 @@ The Warrior and Archer eventually struggle against ghosts because physical attac
 <h2>Archer</h2>
 
 <div class="weapon">
-🏹 Bow and Arrow
+🏹 Weapon: Bow and Arrow
 </div>
 
 <p class="skill-title">Starting Skills</p>
 
 <ul>
-<li><strong>Triple Arrow:</strong> Shoot three arrows at once</li>
+<li><strong>Triple Arrow:</strong> Shoot 3 arrows at once</li>
+<li><strong>Quick Shot:</strong> Faster attack speed</li>
+<li><strong>Piercing Arrows:</strong> Arrows pierce enemies</li>
+</ul>
 
-<li><strong>Quick Shot:</strong> Fire arrows much faster</li>
+<p class="level-title">Level 1 Monsters</p>
 
-<li><strong>Piercing Arrows:</strong> Arrows pass through enemies</li>
+<ul>
+<li>👹 3 Goblins</li>
 </ul>
 
 <p class="skill-title">Arrow Powers</p>
 
 <ul>
-<li><strong>Ice Arrows:</strong> Slow enemies when hit</li>
-
-<li><strong>Fire Arrows:</strong> Burn enemies over time</li>
-
+<li><strong>Ice Arrows:</strong> Slow enemies</li>
+<li><strong>Fire Arrows:</strong> Burn enemies</li>
 <li><strong>Poison Arrows:</strong> Poison enemies</li>
+</ul>
+
+<p class="level-title">Level 2 Monsters</p>
+
+<ul>
+<li>🐺 3 Packs of Wolves</li>
 </ul>
 
 <p class="skill-title">Ultimate Skills</p>
 
 <ul>
 <li><strong>Raining Arrows:</strong> Arrows rain from the sky</li>
+<li><strong>Tracking Arrow:</strong> Redirect missed arrows</li>
+<li><strong>Scatter Arrow:</strong> Fire arrows everywhere</li>
+</ul>
 
-<li><strong>Tracking Arrow:</strong> Missed arrows redirect to enemies</li>
+<p class="level-title">Level 3 Monsters</p>
 
-<li><strong>Scatter Arrow:</strong> Fire arrows in every direction</li>
+<ul>
+<li>👻 5 Ghosts</li>
+</ul>
+
+<p class="level-title">Ending</p>
+
+<ul>
+<li>❌ Archer arrows cannot damage ghosts</li>
+<li>☠️ Death Ending</li>
 </ul>
 
 </div>
@@ -204,47 +245,70 @@ The Warrior and Archer eventually struggle against ghosts because physical attac
 <h2>Mage</h2>
 
 <div class="weapon">
-🪄 Staff
+🪄 Weapon: Staff
 </div>
 
 <p class="skill-title">Starting Magic</p>
 
 <ul>
-<li><strong>Ice Magic:</strong> Slow enemies with ice bolts</li>
+<li><strong>Ice Magic:</strong> Slow enemies</li>
+<li><strong>Fire Magic:</strong> Burn enemies</li>
+<li><strong>Lightning Magic:</strong> Stun enemies</li>
+</ul>
 
-<li><strong>Fire Magic:</strong> Burn enemies over time</li>
+<p class="level-title">Level 1 Monsters</p>
 
-<li><strong>Lightning Magic:</strong> Stun enemies with lightning</li>
+<ul>
+<li>👹 3 Goblins</li>
 </ul>
 
 <p class="skill-title">Advanced Magic</p>
 
 <ul>
-<li><strong>Holy Magic:</strong> Strong against ghosts and undead</li>
+<li><strong>Holy Magic:</strong> Strong against ghosts</li>
+<li><strong>Shadow Magic:</strong> Trap enemies</li>
+<li><strong>Necromancy Magic:</strong> Summon undead army</li>
+</ul>
 
-<li><strong>Shadow Magic:</strong> Trap enemies using shadows</li>
+<p class="level-title">Level 2 Monsters</p>
 
-<li><strong>Necromancy Magic:</strong> Summon undead armies</li>
+<ul>
+<li>🐺 3 Packs of Wolves</li>
 </ul>
 
 <p class="skill-title">Elemental Magic</p>
 
 <ul>
-<li><strong>Wind Magic:</strong> Powerful wind slashes</li>
+<li><strong>Wind Magic:</strong> Wind slashes</li>
+<li><strong>Earth Magic:</strong> Rocks and vines</li>
+<li><strong>Water Magic:</strong> Water bubbles and drowning attacks</li>
+</ul>
 
-<li><strong>Earth Magic:</strong> Throw rocks and control vines</li>
+<p class="level-title">Level 3 Monsters</p>
 
-<li><strong>Water Magic:</strong> Use water bubbles to drown enemies</li>
+<ul>
+<li>👻 5 Ghosts</li>
 </ul>
 
 <p class="skill-title">Final Skills</p>
 
 <ul>
 <li><strong>Meteor:</strong> Summon a giant meteor</li>
-
 <li><strong>Judgement:</strong> Holy swords rain from the sky</li>
+<li><strong>Death:</strong> Instantly kill your enemy</li>
+</ul>
 
-<li><strong>Death:</strong> Instantly kill your opponent</li>
+<p class="level-title">Final Boss</p>
+
+<ul>
+<li>💀 Skeleton King</li>
+</ul>
+
+<p class="level-title">Ending</p>
+
+<ul>
+<li>✅ Mage can defeat ghosts using Holy Magic</li>
+<li>🏆 Victory Ending</li>
 </ul>
 
 </div>
