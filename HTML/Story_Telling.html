@@ -1,624 +1,321 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dungeon Conqueror</title>
 
-<style>
+    <title>Dungeon Game</title>
 
-body{
-    margin:0;
-    padding:0;
-    background:linear-gradient(to bottom,#0a0a0a,#240000);
-    color:white;
-    font-family:Georgia, serif;
-    text-align:center;
-}
+    <style>
 
-.container{
-    width:90%;
-    margin:auto;
-    padding:20px;
-}
+        body{
+            background-color:black;
+            color:white;
+            text-align:center;
+            font-family:Arial;
+        }
 
-h1{
-    color:darkred;
-    font-size:50px;
-    text-shadow:3px 3px 10px black;
-}
+        .box{
+            border:2px solid red;
+            padding:20px;
+            margin:20px;
+        }
 
-.game-box{
-    background:rgba(0,0,0,0.8);
-    border:2px solid darkred;
-    border-radius:15px;
-    padding:30px;
-    margin-top:20px;
-    box-shadow:0px 0px 20px rgba(255,0,0,0.4);
-}
+        button{
+            background-color:darkred;
+            color:white;
+            padding:10px;
+            margin:10px;
+        }
 
-button{
-    background:darkred;
-    color:white;
-    border:none;
-    padding:15px 25px;
-    margin:10px;
-    font-size:18px;
-    border-radius:10px;
-    cursor:pointer;
-    transition:0.3s;
-}
+    </style>
 
-button:hover{
-    background:red;
-    transform:scale(1.05);
-}
-
-.class-container{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    margin-top:30px;
-    flex-wrap:wrap;
-}
-
-.class-box{
-    width:30%;
-    background:rgba(0,0,0,0.7);
-    border:2px solid darkred;
-    border-radius:15px;
-    padding:20px;
-}
-
-.class-box h2{
-    color:#ff5555;
-}
-
-.weapon{
-    font-size:30px;
-}
-
-ul{
-    text-align:left;
-    line-height:1.8;
-}
-
-.hidden{
-    display:none;
-}
-
-</style>
 </head>
 
 <body>
 
-<div class="container">
+    <h1 style="color:darkred;">
+        Welcome to My Dungeon
+    </h1>
 
-<h1>
-Welcome to My Dungeon<br>
-Pick A Class and Start Your Adventure to Conquer It<br>
-Once You Start, There is No Turning Back
-</h1>
+    <p>
+        Pick A Class and Start Your Adventure
+    </p>
 
-<!-- CLASS SELECTION -->
+    <!-- CLASS CHOICES -->
 
-<div id="classSelect" class="class-container">
+    <div id="classes">
 
-<div class="class-box">
-<h2>Warrior</h2>
-<div class="weapon">⚔️</div>
-<p><strong>Weapon:</strong> Sword</p>
+        <div class="box">
 
-<ul>
-<li>Heavy Strike</li>
-<li>Quick Draw</li>
-<li>Resistance</li>
-</ul>
+            <h2>Warrior ⚔️</h2>
 
-<button onclick="startGame('warrior')">
-Choose Warrior
-</button>
-</div>
+            <p>Weapon: Sword</p>
 
-<div class="class-box">
-<h2>Archer</h2>
-<div class="weapon">🏹</div>
-<p><strong>Weapon:</strong> Bow and Arrow</p>
+            <p>
+                Heavy Strike<br>
+                Quick Draw<br>
+                Resistance
+            </p>
 
-<ul>
-<li>Triple Arrow</li>
-<li>Quick Shot</li>
-<li>Piercing Arrows</li>
-</ul>
+            <button onclick="warrior()">
+                Choose Warrior
+            </button>
 
-<button onclick="startGame('archer')">
-Choose Archer
-</button>
-</div>
+        </div>
 
-<div class="class-box">
-<h2>Mage</h2>
-<div class="weapon">🪄</div>
-<p><strong>Weapon:</strong> Staff</p>
+        <div class="box">
 
-<ul>
-<li>Ice Magic</li>
-<li>Fire Magic</li>
-<li>Lightning Magic</li>
-</ul>
+            <h2>Archer 🏹</h2>
 
-<button onclick="startGame('mage')">
-Choose Mage
-</button>
-</div>
+            <p>Weapon: Bow and Arrow</p>
 
-</div>
+            <p>
+                Triple Arrow<br>
+                Quick Shot<br>
+                Piercing Arrows
+            </p>
 
-<!-- GAME AREA -->
+            <button onclick="archer()">
+                Choose Archer
+            </button>
 
-<div id="gameArea" class="game-box hidden">
+        </div>
 
-<h2 id="title"></h2>
+        <div class="box">
 
-<p id="description"></p>
+            <h2>Mage 🪄</h2>
 
-<div id="choices"></div>
+            <p>Weapon: Staff</p>
 
-</div>
+            <p>
+                Ice Magic<br>
+                Fire Magic<br>
+                Lightning Magic
+            </p>
 
-</div>
+            <button onclick="mage()">
+                Choose Mage
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- GAME AREA -->
+
+    <div id="game" class="box">
+
+        <h2 id="title"></h2>
+
+        <p id="text"></p>
+
+        <div id="buttons"></div>
+
+    </div>
 
 <script>
 
-let currentClass = "";
-let holyMagic = false;
+    var holyMagic = false;
 
-function startGame(chosenClass){
+    function warrior(){
 
-    currentClass = chosenClass;
+        document.getElementById("title").innerHTML =
+        "Level 1 - Goblins 👹";
 
-    document.getElementById("classSelect").classList.add("hidden");
+        document.getElementById("text").innerHTML =
+        "There are 3 goblins ahead of you";
 
-    document.getElementById("gameArea").classList.remove("hidden");
+        document.getElementById("buttons").innerHTML =
 
-    if(chosenClass === "warrior"){
-        warriorStart();
+        "<button onclick='warrior2()'>Attack</button>" +
+
+        "<button onclick='dead()'>Died</button>";
     }
 
-    if(chosenClass === "archer"){
-        archerStart();
+    function warrior2(){
+
+        document.getElementById("title").innerHTML =
+        "Level 2 - Wolves 🐺";
+
+        document.getElementById("text").innerHTML =
+        "3 packs of wolves appear";
+
+        document.getElementById("buttons").innerHTML =
+
+        "<button onclick='warrior3()'>Attack</button>" +
+
+        "<button onclick='dead()'>Died</button>";
     }
 
-    if(chosenClass === "mage"){
-        mageStart();
+    function warrior3(){
+
+        document.getElementById("title").innerHTML =
+        "Level 3 - Ghosts 👻";
+
+        document.getElementById("text").innerHTML =
+        "Your sword cannot hurt ghosts";
+
+        document.getElementById("buttons").innerHTML =
+
+        "<button onclick='dead()'>Attack</button>";
     }
-}
 
-function createScene(title, text, buttons){
+    // ARCHER
 
-    document.getElementById("title").innerHTML = title;
+    function archer(){
 
-    document.getElementById("description").innerHTML = text;
+        document.getElementById("title").innerHTML =
+        "Level 1 - Goblins 👹";
 
-    let choiceArea = document.getElementById("choices");
+        document.getElementById("text").innerHTML =
+        "There are 3 goblins ahead of you";
 
-    choiceArea.innerHTML = "";
+        document.getElementById("buttons").innerHTML =
 
-    buttons.forEach(button => {
+        "<button onclick='archer2()'>Attack</button>" +
 
-        let btn = document.createElement("button");
+        "<button onclick='dead()'>Died</button>";
+    }
 
-        btn.innerHTML = button.text;
+    function archer2(){
 
-        btn.onclick = button.action;
+        document.getElementById("title").innerHTML =
+        "Level 2 - Wolves 🐺";
 
-        choiceArea.appendChild(btn);
+        document.getElementById("text").innerHTML =
+        "3 packs of wolves appear";
 
-    });
-}
+        document.getElementById("buttons").innerHTML =
 
-function deathEnding(){
+        "<button onclick='archer3()'>Attack</button>" +
 
-    createScene(
-        "☠️ You Died",
-        "Your journey has ended inside the dungeon.",
-        [
-            {text:"Restart", action:restartGame}
-        ]
-    );
-}
+        "<button onclick='dead()'>Died</button>";
+    }
 
-function restartGame(){
+    function archer3(){
 
-    holyMagic = false;
+        document.getElementById("title").innerHTML =
+        "Level 3 - Ghosts 👻";
 
-    location.reload();
-}
+        document.getElementById("text").innerHTML =
+        "Your arrows go through the ghosts";
 
-function victoryEnding(){
+        document.getElementById("buttons").innerHTML =
 
-    createScene(
-        "🏆 Congratulations",
-        "You have conquered the dungeon and defeated the Skeleton King!",
-        [
-            {text:"Home", action:restartGame}
-        ]
-    );
-}
+        "<button onclick='dead()'>Attack</button>";
+    }
 
-//////////////////////////
-// WARRIOR
-//////////////////////////
+    // MAGE
 
-function warriorStart(){
+    function mage(){
 
-createScene(
-"⚔️ Warrior Skills",
-`
-Choose your skill.<br><br>
+        document.getElementById("title").innerHTML =
+        "Choose Your Magic";
 
-Heavy Strike: Gain 20% attack power<br>
-Quick Draw: Gain 30% attack speed<br>
-Resistance: Gain 20% damage reduction
-`,
-[
-{text:"Heavy Strike", action:warriorGoblins},
-{text:"Quick Draw", action:warriorGoblins},
-{text:"Resistance", action:warriorGoblins}
-]
-);
+        document.getElementById("text").innerHTML =
+        "Holy Magic is strong against ghosts";
 
-}
+        document.getElementById("buttons").innerHTML =
 
-function warriorGoblins(){
+        "<button onclick='holy()'>Holy Magic</button>" +
 
-createScene(
-"👹 Level 1 - Goblins",
-"There are 3 goblins ahead of you. What will you do?",
-[
-{text:"Attack", action:warriorPassive},
-{text:"Died", action:deathEnding}
-]
-);
-
-}
-
-function warriorPassive(){
+        "<button onclick='mage2()'>Shadow Magic</button>";
+    }
 
-createScene(
-"⚔️ Passive Skills",
-`
-Choose a passive skill.<br><br>
-
-Berserk: Gain attack buffs after kills<br>
-Latent Retribution: Waiting boosts next attack<br>
-Health Threshold: Chance to parry below 50% HP
-`,
-[
-{text:"Berserk", action:warriorWolves},
-{text:"Latent Retribution", action:warriorWolves},
-{text:"Health Threshold", action:warriorWolves}
-]
-);
-
-}
-
-function warriorWolves(){
-
-createScene(
-"🐺 Level 2 - Wolves",
-"3 packs of wolves appear from the darkness.",
-[
-{text:"Attack", action:warriorUltimate},
-{text:"Died", action:deathEnding}
-]
-);
-
-}
-
-function warriorUltimate(){
-
-createScene(
-"⚔️ Ultimate Skills",
-`
-Devastate: Giant shockwave attack<br>
-Impact: Guaranteed critical hit<br>
-Mortal Spin: Become a tornado of blades
-`,
-[
-{text:"Devastate", action:warriorGhosts},
-{text:"Impact", action:warriorGhosts},
-{text:"Mortal Spin", action:warriorGhosts}
-]
-);
-
-}
-
-function warriorGhosts(){
-
-createScene(
-"👻 Level 3 - Ghosts",
-"5 ghosts appear before you.",
-[
-{text:"Attack", action:warriorGhostDeath},
-{text:"Died", action:deathEnding}
-]
-);
-
-}
-
-function warriorGhostDeath(){
-
-createScene(
-"☠️ Defeat",
-"Your sword cannot damage ghosts.",
-[
-{text:"Restart", action:restartGame},
-{text:"Redo", action:warriorGhosts}
-]
-);
-
-}
-
-//////////////////////////
-// ARCHER
-//////////////////////////
-
-function archerStart(){
-
-createScene(
-"🏹 Archer Skills",
-`
-Triple Arrow: Shoot 3 arrows at once<br>
-Quick Shot: Attack faster<br>
-Piercing Arrows: Arrows pierce enemies
-`,
-[
-{text:"Triple Arrow", action:archerGoblins},
-{text:"Quick Shot", action:archerGoblins},
-{text:"Piercing Arrows", action:archerGoblins}
-]
-);
-
-}
-
-function archerGoblins(){
-
-createScene(
-"👹 Level 1 - Goblins",
-"There are 3 goblins ahead of you.",
-[
-{text:"Attack", action:archerPower},
-{text:"Died", action:deathEnding}
-]
-);
-
-}
-
-function archerPower(){
-
-createScene(
-"🏹 Arrow Powers",
-`
-Ice Arrows: Slow enemies<br>
-Fire Arrows: Burn enemies<br>
-Poison Arrows: Poison enemies
-`,
-[
-{text:"Ice Arrows", action:archerWolves},
-{text:"Fire Arrows", action:archerWolves},
-{text:"Poison Arrows", action:archerWolves}
-]
-);
-
-}
-
-function archerWolves(){
-
-createScene(
-"🐺 Level 2 - Wolves",
-"3 packs of wolves surround you.",
-[
-{text:"Attack", action:archerUltimate},
-{text:"Died", action:deathEnding}
-]
-);
-
-}
-
-function archerUltimate(){
-
-createScene(
-"🏹 Ultimate Skills",
-`
-Raining Arrows: Arrows rain from the sky<br>
-Tracking Arrow: Missed arrows redirect<br>
-Scatter Arrow: Shoot arrows everywhere
-`,
-[
-{text:"Raining Arrows", action:archerGhosts},
-{text:"Tracking Arrow", action:archerGhosts},
-{text:"Scatter Arrow", action:archerGhosts}
-]
-);
-
-}
-
-function archerGhosts(){
-
-createScene(
-"👻 Level 3 - Ghosts",
-"5 ghosts block your path.",
-[
-{text:"Attack", action:archerGhostDeath},
-{text:"Died", action:deathEnding}
-]
-);
-
-}
-
-function archerGhostDeath(){
-
-createScene(
-"☠️ Defeat",
-"Your arrows pass through the ghosts.",
-[
-{text:"Restart", action:restartGame},
-{text:"Redo", action:archerGhosts}
-]
-);
-
-}
-
-//////////////////////////
-// MAGE
-//////////////////////////
-
-function mageStart(){
-
-createScene(
-"🪄 Mage Magic",
-`
-Ice Magic: Slow enemies<br>
-Fire Magic: Burn enemies<br>
-Lightning Magic: Stun enemies
-`,
-[
-{text:"Ice Magic", action:mageGoblins},
-{text:"Fire Magic", action:mageGoblins},
-{text:"Lightning Magic", action:mageGoblins}
-]
-);
-
-}
-
-function mageGoblins(){
-
-createScene(
-"👹 Level 1 - Goblins",
-"There are 3 goblins ahead of you.",
-[
-{text:"Attack", action:magePower},
-{text:"Died", action:deathEnding}
-]
-);
-
-}
-
-function magePower(){
-
-createScene(
-"🪄 Advanced Magic",
-`
-Holy Magic: Strong against ghosts<br>
-Shadow Magic: Trap enemies<br>
-Necromancy Magic: Summon undead army
-`,
-[
-{text:"Holy Magic", action:function(){
-
-holyMagic = true;
-mageWolves();
-
-}},
-{text:"Shadow Magic", action:mageWolves},
-{text:"Necromancy Magic", action:mageWolves}
-]
-);
-
-}
-
-function mageWolves(){
-
-createScene(
-"🐺 Level 2 - Wolves",
-"3 packs of wolves attack you.",
-[
-{text:"Attack", action:mageElements},
-{text:"Died", action:deathEnding}
-]
-);
-
-}
-
-function mageElements(){
-
-createScene(
-"🪄 Elemental Magic",
-`
-Wind Magic: Wind slashes<br>
-Earth Magic: Rocks and vines<br>
-Water Magic: Water bubble attacks
-`,
-[
-{text:"Wind Magic", action:mageGhosts},
-{text:"Earth Magic", action:mageGhosts},
-{text:"Water Magic", action:mageGhosts}
-]
-);
-
-}
-
-function mageGhosts(){
-
-if(holyMagic){
-
-createScene(
-"👻 Level 3 - Ghosts",
-"Your Holy Magic damages the ghosts.",
-[
-{text:"Attack", action:mageFinalSkill},
-{text:"Died", action:deathEnding}
-]
-);
-
-}
-
-else{
-
-createScene(
-"☠️ Defeat",
-"Without Holy Magic your spells cannot damage ghosts.",
-[
-{text:"Restart", action:restartGame},
-{text:"Redo", action:magePower}
-]
-);
-
-}
-
-}
-
-function mageFinalSkill(){
-
-createScene(
-"🪄 Final Skills",
-`
-Meteor: Summon a giant meteor<br>
-Judgement: Holy swords rain from the sky<br>
-Death: Instantly kill your enemy
-`,
-[
-{text:"Meteor", action:skeletonKing},
-{text:"Judgement", action:skeletonKing},
-{text:"Death", action:skeletonKing}
-]
-);
-
-}
-
-function skeletonKing(){
-
-createScene(
-"💀 Final Boss - Skeleton King",
-"The Skeleton King rises from his throne.",
-[
-{text:"Attack", action:victoryEnding},
-{text:"Died", action:deathEnding}
-]
-);
-
-}
+    function holy(){
+
+        holyMagic = true;
+
+        mage2();
+    }
+
+    function mage2(){
+
+        document.getElementById("title").innerHTML =
+        "Level 2 - Wolves 🐺";
+
+        document.getElementById("text").innerHTML =
+        "3 packs of wolves attack";
+
+        document.getElementById("buttons").innerHTML =
+
+        "<button onclick='mage3()'>Attack</button>" +
+
+        "<button onclick='dead()'>Died</button>";
+    }
+
+    function mage3(){
+
+        if(holyMagic == true){
+
+            document.getElementById("title").innerHTML =
+            "Level 3 - Ghosts 👻";
+
+            document.getElementById("text").innerHTML =
+            "Your Holy Magic defeats the ghosts";
+
+            document.getElementById("buttons").innerHTML =
+
+            "<button onclick='boss()'>Attack</button>";
+
+        }
+
+        else{
+
+            dead();
+
+        }
+
+    }
+
+    function boss(){
+
+        document.getElementById("title").innerHTML =
+        "Final Boss 💀";
+
+        document.getElementById("text").innerHTML =
+        "The Skeleton King appears";
+
+        document.getElementById("buttons").innerHTML =
+
+        "<button onclick='win()'>Attack</button>" +
+
+        "<button onclick='dead()'>Died</button>";
+    }
+
+    // ENDINGS
+
+    function win(){
+
+        document.getElementById("title").innerHTML =
+        "🏆 Victory";
+
+        document.getElementById("text").innerHTML =
+        "You conquered the dungeon";
+
+        document.getElementById("buttons").innerHTML =
+
+        "<button onclick='restart()'>Home</button>";
+    }
+
+    function dead(){
+
+        document.getElementById("title").innerHTML =
+        "☠️ You Died";
+
+        document.getElementById("text").innerHTML =
+        "Game Over";
+
+        document.getElementById("buttons").innerHTML =
+
+        "<button onclick='restart()'>Restart</button>";
+    }
+
+    function restart(){
+
+        location.reload();
+
+    }
 
 </script>
 
