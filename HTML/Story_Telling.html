@@ -1,68 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
 
-    <title>Dungeon Conqueror</title>
+<title>Dungeon Conqueror</title>
 
 <style>
 
 body{
-    background: black;
-    color: white;
-    font-family: Arial;
-    text-align: center;
-    margin: 0;
+    background:black;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+    margin:0;
 }
 
 .container{
-    width: 90%;
-    margin: auto;
-    padding: 20px;
+    width:90%;
+    margin:auto;
+    padding:20px;
 }
 
 h1{
-    color: darkred;
-    font-size: 45px;
+    color:darkred;
+    font-size:45px;
 }
 
 .game-box{
-    background: #111;
-    border: 2px solid darkred;
-    padding: 20px;
-    margin-top: 20px;
+    background:#111;
+    border:2px solid darkred;
+    padding:20px;
+    margin-top:20px;
 }
 
 button{
-    background: darkred;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    margin: 10px;
-    font-size: 16px;
-    cursor: pointer;
+    background:darkred;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    margin:10px;
+    font-size:16px;
+    cursor:pointer;
 }
 
 button:hover{
-    background: red;
+    background:red;
 }
 
 .class-container{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
 }
 
 .class-box{
-    width: 30%;
-    border: 2px solid darkred;
-    background: #111;
-    padding: 20px;
-    margin-top: 20px;
+    width:30%;
+    border:2px solid darkred;
+    background:#111;
+    padding:20px;
+    margin-top:20px;
 }
 
 .hidden{
-    display: none;
+    display:none;
 }
 
 </style>
@@ -78,66 +78,56 @@ Welcome To My Dungeon
 </h1>
 
 <p>
-Pick a class and start your adventure
+Pick a class and start your adventure. Once you enter the dungeon there is no turning back.
 </p>
-
-<!-- CLASS MENU -->
 
 <div id="classSelect" class="class-container">
 
-    <!-- WARRIOR -->
+<div class="class-box">
 
-    <div class="class-box">
+<h2>Warrior ⚔️</h2>
 
-        <h2>Warrior ⚔️</h2>
+<p>Weapon: Sword</p>
 
-        <p>Weapon: Sword</p>
-
-        <button onclick="startGame('warrior')">
-            Choose Warrior
-        </button>
-
-    </div>
-
-    <!-- ARCHER -->
-
-    <div class="class-box">
-
-        <h2>Archer 🏹</h2>
-
-        <p>Weapon: Bow and Arrow</p>
-
-        <button onclick="startGame('archer')">
-            Choose Archer
-        </button>
-
-    </div>
-
-    <!-- MAGE -->
-
-    <div class="class-box">
-
-        <h2>Mage 🪄</h2>
-
-        <p>Weapon: Staff</p>
-
-        <button onclick="startGame('mage')">
-            Choose Mage
-        </button>
-
-    </div>
+<button onclick="startGame('warrior')">
+Choose Warrior
+</button>
 
 </div>
 
-<!-- GAME AREA -->
+<div class="class-box">
+
+<h2>Archer 🏹</h2>
+
+<p>Weapon: Bow and Arrow</p>
+
+<button onclick="startGame('archer')">
+Choose Archer
+</button>
+
+</div>
+
+<div class="class-box">
+
+<h2>Mage 🪄</h2>
+
+<p>Weapon: Staff</p>
+
+<button onclick="startGame('mage')">
+Choose Mage
+</button>
+
+</div>
+
+</div>
 
 <div id="gameArea" class="game-box hidden">
 
-    <h2 id="title"></h2>
+<h2 id="title"></h2>
 
-    <p id="text"></p>
+<p id="text"></p>
 
-    <div id="buttons"></div>
+<div id="buttons"></div>
 
 </div>
 
@@ -149,37 +139,37 @@ var holyMagic = false;
 
 function startGame(playerClass){
 
-    document.getElementById("classSelect").classList.add("hidden");
+document.getElementById("classSelect").classList.add("hidden");
 
-    document.getElementById("gameArea").classList.remove("hidden");
+document.getElementById("gameArea").classList.remove("hidden");
 
-    if(playerClass == "warrior"){
-        warriorStart();
-    }
+if(playerClass == "warrior"){
+warriorStart();
+}
 
-    if(playerClass == "archer"){
-        archerStart();
-    }
+if(playerClass == "archer"){
+archerStart();
+}
 
-    if(playerClass == "mage"){
-        mageStart();
-    }
+if(playerClass == "mage"){
+mageStart();
+}
 
 }
 
 function showScene(title,text,buttons){
 
-    document.getElementById("title").innerHTML = title;
+document.getElementById("title").innerHTML = title;
 
-    document.getElementById("text").innerHTML = text;
+document.getElementById("text").innerHTML = text;
 
-    document.getElementById("buttons").innerHTML = buttons;
+document.getElementById("buttons").innerHTML = buttons;
 
 }
 
-/////////////////////////
-// WARRIOR
-/////////////////////////
+////////////////////////
+//// WARRIOR
+////////////////////////
 
 function warriorStart(){
 
@@ -187,7 +177,13 @@ showScene(
 
 "⚔️ Warrior Skills",
 
-"Choose your starting skill",
+"Choose your starting skill <br><br>" +
+
+"<b>Heavy Strike</b> - Gain 20% more attack power <br><br>" +
+
+"<b>Quick Draw</b> - Gain 30% faster attack speed <br><br>" +
+
+"<b>Resistance</b> - Take 20% less damage",
 
 "<button onclick='warriorLevel1()'>Heavy Strike</button>" +
 
@@ -221,7 +217,13 @@ showScene(
 
 "⚔️ Passive Skills",
 
-"Congratulations you beat level 1. Choose a passive skill",
+"Congratulations you beat level 1. Choose a passive skill <br><br>" +
+
+"<b>Berserk</b> - Every monster kill gives you more attack power <br><br>" +
+
+"<b>Latent Retribution</b> - Waiting before attacking makes your next hit stronger <br><br>" +
+
+"<b>Health Threshold</b> - Low health gives you a chance to block attacks",
 
 "<button onclick='warriorLevel2()'>Berserk</button>" +
 
@@ -255,7 +257,13 @@ showScene(
 
 "⚔️ New Skill",
 
-"Choose your new skill",
+"Choose your new skill <br><br>" +
+
+"<b>Devastate</b> - Smash the ground and create a giant shockwave <br><br>" +
+
+"<b>Impact</b> - Your next attack always lands a critical hit <br><br>" +
+
+"<b>Mortal Spin</b> - Spin like a tornado and hit every enemy around you",
 
 "<button onclick='warriorLevel3()'>Devastate</button>" +
 
@@ -297,9 +305,9 @@ showScene(
 
 }
 
-/////////////////////////
-// ARCHER
-/////////////////////////
+////////////////////////
+//// ARCHER
+////////////////////////
 
 function archerStart(){
 
@@ -307,7 +315,13 @@ showScene(
 
 "🏹 Archer Skills",
 
-"Choose your starting skill",
+"Choose your starting skill <br><br>" +
+
+"<b>Triple Arrow</b> - Shoot 3 arrows at once <br><br>" +
+
+"<b>Quick Shot</b> - Fire arrows much faster <br><br>" +
+
+"<b>Piercing Arrows</b> - Arrows travel through multiple enemies",
 
 "<button onclick='archerLevel1()'>Triple Arrow</button>" +
 
@@ -341,7 +355,13 @@ showScene(
 
 "🏹 Arrow Powers",
 
-"Congratulations you beat level 1. Pick a power",
+"Congratulations you beat level 1. Pick a power <br><br>" +
+
+"<b>Ice Arrows</b> - Slow enemies when hit <br><br>" +
+
+"<b>Fire Arrows</b> - Burn enemies over time <br><br>" +
+
+"<b>Poison Arrows</b> - Poison enemies and deal damage slowly",
 
 "<button onclick='archerLevel2()'>Ice Arrows</button>" +
 
@@ -375,7 +395,13 @@ showScene(
 
 "🏹 New Skill",
 
-"Choose your new skill",
+"Choose your new skill <br><br>" +
+
+"<b>Raining Arrows</b> - Shoot arrows into the sky and rain them down <br><br>" +
+
+"<b>Tracking Arrow</b> - Missed arrows follow enemies <br><br>" +
+
+"<b>Scatter Arrow</b> - Fire arrows in every direction",
 
 "<button onclick='archerLevel3()'>Raining Arrows</button>" +
 
@@ -417,9 +443,9 @@ showScene(
 
 }
 
-/////////////////////////
-// MAGE
-/////////////////////////
+////////////////////////
+//// MAGE
+////////////////////////
 
 function mageStart(){
 
@@ -427,7 +453,13 @@ showScene(
 
 "🪄 Mage Skills",
 
-"Choose your starting magic",
+"Choose your starting magic <br><br>" +
+
+"<b>Ice Magic</b> - Freeze enemies and slow them down <br><br>" +
+
+"<b>Fire Magic</b> - Burn enemies with flames <br><br>" +
+
+"<b>Lightning Magic</b> - Shock enemies and stun them",
 
 "<button onclick='mageLevel1()'>Ice Magic</button>" +
 
@@ -461,7 +493,13 @@ showScene(
 
 "✨ Advanced Magic",
 
-"Choose a new magic skill",
+"Choose a new magic skill <br><br>" +
+
+"<b>Holy Magic</b> - Strong against ghosts and undead enemies <br><br>" +
+
+"<b>Shadow Magic</b> - Trap enemies using shadows <br><br>" +
+
+"<b>Necromancy Magic</b> - Summon undead creatures to help you fight",
 
 "<button onclick='holy()'>Holy Magic</button>" +
 
@@ -503,7 +541,13 @@ showScene(
 
 "🌪️ Element Magic",
 
-"Choose your new magic",
+"Choose your new magic <br><br>" +
+
+"<b>Wind Magic</b> - Create sharp wind slashes <br><br>" +
+
+"<b>Earth Magic</b> - Throw rocks and trap enemies with vines <br><br>" +
+
+"<b>Water Magic</b> - Create water attacks and drown enemies",
 
 "<button onclick='mageLevel3()'>Wind Magic</button>" +
 
@@ -555,7 +599,13 @@ showScene(
 
 "🪄 Final Skill",
 
-"Choose your final skill",
+"Choose your final skill <br><br>" +
+
+"<b>Meteor</b> - Summon a giant meteor from the sky <br><br>" +
+
+"<b>Judgement</b> - Holy swords rain down on enemies <br><br>" +
+
+"<b>Death</b> - Instantly destroy your enemy",
 
 "<button onclick='bossFight()'>Meteor</button>" +
 
@@ -583,9 +633,9 @@ showScene(
 
 }
 
-/////////////////////////
-// ENDINGS
-/////////////////////////
+////////////////////////
+//// ENDINGS
+////////////////////////
 
 function win(){
 
